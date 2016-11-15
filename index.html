@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8">
+
+    <title>Deal Price</title>
+
+    <style>
+        thead { background: lightgray; align-content: center; }
+        tbody { display: block; overflow: auto; height: 250px; border-collapse: collapse; }
+        th { height: 40px; width: auto; border: 1px solid black; text-align: center; }
+        td { height: 30px; width: 120px; margin: 0px; padding: 5px; border: 1px solid black;}
+    </style>
+
+</head>
+
+<body>
+    <table ng-app="DealHistoryApp" ng-controller="DealHistoryController">
+        <thead>
+            <tr>
+                <th colspan="4">Historical Deal Price</th>
+            </tr>
+        </thead>
+        <tbody lola-infinite-scroll="loadMoreRecords()">
+            <tr ng-repeat="deal in dealList">
+                <td>{{deal.dateValue | date:'mediumDate'}}</td>
+                <td>{{deal.limit | currency:'$':2}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+</body>
